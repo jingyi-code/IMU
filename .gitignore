@@ -1,0 +1,13 @@
+# IDE settings and local builds
+.idea/
+build/
+cmake-build-*/
+/MDK-ARM/BMI_test1_/
+/MDK-ARM/*.uvoptx
+/MDK-ARM/*.uvguix.*
+
+# Temporary editor and assistant backups
+*.bak
+*.before-*
+*.codex-backup
+*.chatgpt-backup

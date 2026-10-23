@@ -535,6 +535,11 @@
               <FileType>8</FileType>
               <FilePath>..\UserCode\Src\callback.cpp</FilePath>
             </File>
+            <File>
+              <FileName>imu.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\UserCode\Src\imu.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

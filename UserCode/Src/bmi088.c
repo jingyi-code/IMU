@@ -81,6 +81,26 @@ uint8_t bmi088_gyro_read_reg(uint8_t reg, uint8_t *data, uint8_t length)
     return ok;
 }
 
+uint8_t bmi088_read_raw(int16_t accel[3], int16_t gyro[3])
+{
+    uint8_t acc_data[6];
+    uint8_t gyro_data[6];
+    uint8_t i;
+
+    if (accel == NULL || gyro == NULL) return 0;
+    if (!bmi088_accel_read_reg(0x12, acc_data, 6)) return 0;
+    if (!bmi088_gyro_read_reg(0x02, gyro_data, 6)) return 0;
+
+    for (i = 0; i < 3; i++)
+    {
+        accel[i] = (int16_t)((uint16_t)acc_data[2 * i] |
+                             ((uint16_t)acc_data[2 * i + 1] << 8));
+        gyro[i] = (int16_t)((uint16_t)gyro_data[2 * i] |
+                            ((uint16_t)gyro_data[2 * i + 1] << 8));
+    }
+    return 1;
+}
+
 uint8_t bmi088_init(void)
 {
     uint8_t dummy = 0;
